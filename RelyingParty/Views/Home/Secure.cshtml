@@ -1,0 +1,18 @@
+﻿@using System.IdentityModel.Claims
+@model System.Security.Claims.ClaimsPrincipal
+
+@{
+    ViewBag.Title = "Secure page";
+}
+
+<h2>Secure page</h2>
+
+<table>
+@foreach (var claim in Model.Claims)
+{
+    <tr>
+        <th>@claim.Type</th>
+        <td>@claim.Value</td>
+    </tr>
+}
+</table>
