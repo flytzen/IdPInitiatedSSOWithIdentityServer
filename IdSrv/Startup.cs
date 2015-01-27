@@ -8,6 +8,7 @@ namespace IdSrv
     using System.Diagnostics;
     using System.IO;
     using System.Security.Cryptography.X509Certificates;
+    using System.Web.Http;
 
     using Owin;
 
@@ -29,6 +30,7 @@ namespace IdSrv
                                 clients: Clients.Get(),
                                 scopes: Scopes.Get()),
                     });
+
         }
 
         private X509Certificate2 LoadCertificate()
