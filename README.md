@@ -21,8 +21,8 @@ As mentioned above, OIDC does not support IdP-initiated SSO, so the trick to mak
 
 1. SAML IdP posts a SAML token to Identity Server
 2. Identity Server processes the SAML Token and logs the user in to the Identity Server in the same way as if Identity Server had sent a request to the IdP in the first place.
-  a. IUserService.AuthenticateExternalAsync need to be called to create/update the external user in the user repository
-  b. The correct IdentityServer authentication cookies need to be set
+  1. IUserService.AuthenticateExternalAsync need to be called to create/update the external user in the user repository
+  2. The correct IdentityServer authentication cookies need to be set
 3. The user is redirected to the Relying Party on a URL that will cause the RP to redirect the user *back* to Identity Server to ask for a token. Depending on the configuration of the RP, this can be done with the Authorize attribute or by a controller method that explicitly invokes the appropriate middleware.
 4. Because the user is already logged in to IdentityServer, the token is issued and the user is redirected back to the RP.
 
